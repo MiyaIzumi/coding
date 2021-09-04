@@ -6,7 +6,9 @@
     background-position: top;
     clip-path: polygon(0 0, 100% 0, 100% 75vh , 0 100%);
     position: relative;
-
+    @include response(phone){
+        clip-path: none;
+    }
     /* Styling the logo  */
 
     &__logo-img{
