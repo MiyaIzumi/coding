@@ -1,0 +1,98 @@
+.btn{
+    /* Styling the buttons */
+
+    &,&:link,&.visited{
+        font-size: 2rem;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+        display: inline-block;
+        padding: 1.5rem 3rem;
+        border-radius: 10rem;
+        position: relative;
+
+        // FOR THE BUTTON CLASS
+        border: none;
+        cursor: pointer;
+
+        @include response(phone){
+            font-size: 0.8rem;
+        }
+    }
+
+    &:hover{
+        box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2);
+        transform: translateY(-0.3rem);
+
+        &::after{
+            transform: scaleX(1.3)  scaleY(1.5);
+            opacity: 0;
+        }
+    }
+
+    &:active,&:focus{
+        outline: none;
+        box-shadow: 0 0.5rem .5rem rgba(0, 0, 0, 0.2);
+        transform: translateY(-0.1rem);
+    }
+    &--white{
+        color: $color-grey-dark;
+        background-color:$color-white ;
+
+        &::after{
+            background-color: $color-white;
+        }
+    }
+    &--green{
+        color: $color-white;
+        background-color:$color-primary ;
+
+        &::after{
+            background-color: $color-primary;
+        }
+    }
+
+    /* Making the scale effect with ::after psuedo selector */
+
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        border-radius: 10rem;
+        transition: all 0.4s;
+    }
+
+    &--animated{
+         animation: moveInBottom 0.4s ease 0.75s; 
+        animation-fill-mode: backwards;
+    }
+}
+
+.btn-text{
+    &:link,&:visited{
+        color: $color-primary;
+        display: inline-block;
+        font-size: $defaut-font-size;
+        text-decoration: none;
+        border-bottom: .1rem solid $color-primary;
+        padding: .3rem;
+        transition: all 0.2s ease;
+    }
+
+    &:hover{
+        color: $color-white;
+        background-color: $color-primary;
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    }
+
+    &:active{ 
+        transform: translateY(0);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+}

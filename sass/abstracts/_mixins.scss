@@ -1,0 +1,35 @@
+@mixin clearFix {
+    &::after{
+        content: "";
+        display: table;
+        clear: both;
+     }
+}
+
+// MEDIA QUERIES MANAGER 
+// 0-600 - MOBILE
+// 600-800 - TAB-PORT
+// 800-1200 - TAB-LAND
+// [1200-1800] -DEFAULT
+// 1800+ - BIG DEKSTOP
+
+// BREAKPOINT 
+// 600-PHONE
+// 800-TAB-PORT
+// 1200-TAB-LAND
+// 1800-BIG-DEK
+
+@mixin response($breakpoint) {
+    @if $breakpoint == phone  {
+       @media(max-width: 37.5em) { @content } ;
+    }
+    @if $breakpoint == tab-port  {
+        @media(max-width: 56.25em) { @content } ;
+    }
+    @if $breakpoint == tab-land  {
+        @media(max-width: 75em) { @content } ;
+    }
+    @if $breakpoint == big-dek  {
+        @media(min-width: 112.5em) { @content } ;
+    }
+}

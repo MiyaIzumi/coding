@@ -1,0 +1,25 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html{
+    font-size: 62.5%;
+
+    @include response(tab-land){
+        font-size: 56.25%;  // 1rem=9px so 9/16 is 56.25%
+    }
+    @include response(tab-port){
+        font-size: 50%;  // 1rem=8px so 8/16 is 56.25%
+    }
+    @include response(big-dek){
+        font-size: 80%;  // 1rem=12px so 12/16 is 56.25%
+    }
+}
+
+body{
+    box-sizing: border-box;
+}
